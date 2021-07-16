@@ -82,7 +82,26 @@ class AnagramFinder
 
   def matcher()
     output_array = []
+    input1_a = sanitizer(@input1).split("").sort().join("")
+    input2_a = sanitizer(@input2).split("").sort().join("")
     matches = Hash.new()
+    input1_count = Hash.new()
+    input2_count = Hash.new()
+    input1_a.each_char do |char|
+      if !input1_count.include?(char)
+        input1_count.store(char, 1)
+      else
+        input1_count.store(char, input1_count.fetch(char) + 1)
+      end
+    end
+    input2_a.each_char do |char|
+      if !input2_count.include?(char)
+        input2_count.store(char, 1)
+      else
+        input2_count.store(char, input2_count.fetch(char) + 1)
+      end
+    end
+    binding.pry
     sanitizer(@input1).each_char do |char|
       if sanitizer(@input2).include?(char)
         if !matches.include?(char)
