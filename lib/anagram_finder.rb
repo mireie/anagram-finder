@@ -7,10 +7,8 @@ class AnagramFinder
   end
 
   def anagram_finder()
-    input1_array = @input1.upcase.split("").sort()
-    input2_array = @input2.upcase.split("").sort()
     if word_checker?() === true
-      if input1_array === input2_array
+      if @input1.upcase.split("").sort() === @input2.upcase.split("").sort()
         return "These are anagrams!"
       else
         if antigram_finder?() === true
