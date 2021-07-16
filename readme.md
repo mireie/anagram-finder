@@ -17,7 +17,7 @@ A Ruby script that will allow a user to put in two strings and determine whether
 * Create and enter a directory on your local machine for the project
 * Clone public repository from GitHub using `git clone https://github.com/mireie/anagram-finder`
 * To run tests, in the terminal run `rspec`
-* To run the script, in the terminal run `ruby .\anagrammar.rb`
+* To run the script, in the terminal run `ruby .\annagrammar.rb`
 
 ## GitHub Links
 - [GitHub Repo](https://github.com/mireie/anagram-finder)
