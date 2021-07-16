@@ -27,4 +27,8 @@ describe('#AnagramFinder') do
     input = AnagramFinder.new("The Mrs Code","Here cm dots!")
     expect((input.anagram_finder)).to(eq("You need to input actual words!"))
   end
+  it("will return matched letters if it's not an anagram") do
+    input = AnagramFinder.new("ruby","rudy")
+    expect((input.anagram_finder)).to(eq("These are not anagrams but these letters match: R, U, Y"))
+  end
 end

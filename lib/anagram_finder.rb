@@ -16,7 +16,7 @@ class AnagramFinder
         if antigram_finder?() === true
           return "These are antigrams!"
         else
-          return "These are not anagrams!"
+          matcher()
         end
       end
     else
@@ -61,8 +61,8 @@ class AnagramFinder
 
   def antigram_finder?()
     result = true
-    @input1.each_char do |char|
-      if @input1.include?(@input2)
+    sanitizer(@input1).each_char do |char|
+      if sanitizer(@input2).include?(char)
         result = false
       end
     end
@@ -78,5 +78,14 @@ class AnagramFinder
       end
     end
     input_a.join("")
+  end
+  def matcher()
+    output_array = []
+    sanitizer(@input1).each_char do |char|
+      if sanitizer(@input2).include?(char)
+        output_array.push(char)
+      end
+    end
+    "These are not anagrams but these letters match: #{output_array.join(", ")}"
   end
 end
