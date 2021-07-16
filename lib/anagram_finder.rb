@@ -7,8 +7,8 @@ class AnagramFinder
   end
 
   def anagram_finder()
-    word1_array = @word1.split("").sort()
-    word2_array = @word2.split("").sort()
+    word1_array = @word1.upcase.split("").sort()
+    word2_array = @word2.upcase.split("").sort()
     if word1_array === word2_array 
       return 'These words are anagrams'
     else 
