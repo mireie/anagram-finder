@@ -2,13 +2,15 @@ require ("pry")
 
 class AnagramFinder
   def initialize(input1, input2)
-    @input1 = sanitizer(input1)
-    @input2 = sanitizer(input2)
+    @input1 = input1
+    @input2 = input2
   end
 
   def anagram_finder()
     if word_checker?() === true
-      if @input1.chars.sort() === @input2.chars.sort()
+      input1_s = sanitizer(@input1)
+      input2_s = sanitizer(@input2)
+      if input1_s.chars.sort() === input2_s.chars.sort()
         return "These are anagrams!"
       else
         if antigram_finder?() === true
@@ -24,14 +26,22 @@ class AnagramFinder
 
   def word_checker?()
     vowels = "AEIOU"
+    input1_word_array = @input1.upcase.split(" ")
+    input2_word_array = @input2.upcase.split(" ")
     result1 = false
     result2 = false
-    vowels.each_char do |vowel|
-      if @input1.include?(vowel)
-        result1 = true
+    input1_word_array.each do |word|
+      vowels.each_char do |vowel|
+        if word.include?(vowel)
+          result1 = true
+        end
       end
-      if @input2.include?(vowel)
-        result2 = true
+    end
+    input2_word_array.each do |word|
+      vowels.each_char do |vowel|
+        if word.include?(vowel)
+          result2 = true
+        end
       end
     end
     if result1 === true && result2 === true
