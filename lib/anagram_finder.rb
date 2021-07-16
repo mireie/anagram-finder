@@ -28,10 +28,8 @@ class AnagramFinder
     vowels = "AEIOU"
     input1_word_array = @input1.upcase.split(" ")
     input2_word_array = @input2.upcase.split(" ")
-    result1_a = []
-    result2_a = []
-    result1 = false
-    result2 = false
+    result1 = true
+    result2 = true
     input1_word_array.each do |word|
       word_has_vowel = false
       vowels.each_char do |vowel|
@@ -39,7 +37,9 @@ class AnagramFinder
           word_has_vowel = true
         end
       end
-      result1_a.push(word_has_vowel)
+      if word_has_vowel === false
+        result1 = false
+      end
     end
     input2_word_array.each do |word|
       word_has_vowel = false
@@ -48,12 +48,14 @@ class AnagramFinder
           word_has_vowel = true
         end
       end
-      result2_a.push(word_has_vowel)
+      if word_has_vowel === false
+        result1 = false
+      end
     end
-    if result1_a.include?(false) || result2_a.include?(false)
-      false
-    else
+    if result1 === true && result2 === true
       true
+    else
+      false
     end
   end
 
