@@ -82,10 +82,18 @@ class AnagramFinder
 
   def matcher()
     output_array = []
+    matches = Hash.new()
     sanitizer(@input1).each_char do |char|
       if sanitizer(@input2).include?(char)
-        output_array.push(char)
+        if !matches.include?(char)
+          matches.store(char, 1)
+        else
+          matches.store(char, matches.fetch(char) + 1)
+        end
       end
+    end
+    matches.each do |key|
+      output_array.push(key.join(":"))
     end
     "These are not anagrams but these letters match: #{output_array.join(", ")}"
   end
