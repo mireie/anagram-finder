@@ -23,5 +23,8 @@ describe('#AnagramFinder') do
     input = AnagramFinder.new("The Morse Code","Here come dots!")
     expect((input.anagram_finder)).to(eq("These are anagrams!"))
   end
-
+  it("will check each word to see if it's valid") do
+    input = AnagramFinder.new("The Mrs Code","Here cm dots!")
+    expect((input.anagram_finder)).to(eq("You need to input actual words!"))
+  end
 end
