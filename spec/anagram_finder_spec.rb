@@ -31,4 +31,8 @@ describe('#AnagramFinder') do
     input = AnagramFinder.new("ruby","rudy")
     expect((input.anagram_finder)).to(eq("These are not anagrams but these letters match: R, U, Y"))
   end
+  it("will return matched letters and how many match for non-anagrams") do
+    input = AnagramFinder.new("This is a string","This is a Strong")
+    expect((input.anagram_finder)).to(eq("These are not anagrams but these letters match: T:2, H:1, I:2, S:3, A:1, R:1, N:1, G:1"))
+  end
 end

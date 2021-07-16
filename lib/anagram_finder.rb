@@ -79,6 +79,7 @@ class AnagramFinder
     end
     input_a.join("")
   end
+
   def matcher()
     output_array = []
     sanitizer(@input1).each_char do |char|
