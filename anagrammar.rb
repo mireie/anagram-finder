@@ -1,7 +1,7 @@
 #! ./lib/bin/env ruby
 require ('./lib/anagram_finder.rb')
 
-puts "Hey there, I'm Anna the Annagrammar!\nPlease enter the first string to be Annalyzed:"
+puts "Hey there, I'm Anna the Annagrammar! Please don't call me Anna. \nPlease enter the first string to be Annalyzed:"
 input1 = gets.chomp
 puts "Stellar! How about another?"
 input2 = gets.chomp
