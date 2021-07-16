@@ -15,5 +15,9 @@ describe('#AnagramFinder') do
     input = AnagramFinder.new("Rsby","Btry")
     expect((input.anagram_finder)).to(eq('You need to input actual words!'))
   end
+  it("will check for antigrams") do
+    input = AnagramFinder.new("Hello","Frank")
+    expect((input.anagram_finder)).to(eq("These words are antigrams!"))
+  end
 
 end
