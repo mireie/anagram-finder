@@ -1,22 +1,22 @@
 require ("pry")
 
 class AnagramFinder
-  def initialize(word1, word2)
-    @word1 = word1
-    @word2 = word2
+  def initialize(input1, input2)
+    @input1 = input1
+    @input2 = input2
   end
 
   def anagram_finder()
-    word1_array = @word1.upcase.split("").sort()
-    word2_array = @word2.upcase.split("").sort()
+    input1_array = @input1.upcase.split("").sort()
+    input2_array = @input2.upcase.split("").sort()
     if word_checker?() === true
-      if word1_array === word2_array
-        return "These words are anagrams"
+      if input1_array === input2_array
+        return "These are anagrams!"
       else
         if antigram_finder?() === true
-          return "These words are antigrams!"
+          return "These are antigrams!"
         else
-          return "These words are not anagrams"
+          return "These are not anagrams!"
         end
       end
     else
@@ -29,10 +29,10 @@ class AnagramFinder
     result1 = false
     result2 = false
     vowels.each_char do |vowel|
-      if @word1.include?(vowel)
+      if @input1.include?(vowel)
         result1 = true
       end
-      if @word2.include?(vowel)
+      if @input2.include?(vowel)
         result2 = true
       end
     end
@@ -43,11 +43,14 @@ class AnagramFinder
 
   def antigram_finder?()
     result = true
-    @word1.each_char do |char|
-      if @word1.include?(@word2)
+    @input1.each_char do |char|
+      if @input1.include?(@input2)
         result = false
       end
     end
     result
+  end
+  def sanitizer()
+
   end
 end
