@@ -84,7 +84,6 @@ class AnagramFinder
     output_array = []
     input1_a = sanitizer(@input1).split("").sort().join("")
     input2_a = sanitizer(@input2).split("").sort().join("")
-    matches = Hash.new()
     input1_count = Hash.new()
     input2_count = Hash.new()
     input1_a.each_char do |char|
@@ -101,18 +100,18 @@ class AnagramFinder
         input2_count.store(char, input2_count.fetch(char) + 1)
       end
     end
-    binding.pry
-    sanitizer(@input1).each_char do |char|
-      if sanitizer(@input2).include?(char)
-        if !matches.include?(char)
-          matches.store(char, 1)
+    input1_count.each do |key|
+      if input2_count.include?(key[0])
+        if input2_count.fetch(key[0]) === key[1]
+          output_array.push(key.join(":"))
         else
-          matches.store(char, matches.fetch(char) + 1)
+          if input2_count.fetch(key[0]) < key[1]
+            output_array.push((key[0]) + ":" + input2_count.fetch(key[0]).to_s)
+          else
+            output_array.push((key[0]) + ":" + (key[1]).to_s)
+          end
         end
       end
-    end
-    matches.each do |key|
-      output_array.push(key.join(":"))
     end
     "These are not anagrams but these letters match: #{output_array.join(", ")}"
   end
